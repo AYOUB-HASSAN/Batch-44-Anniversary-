@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الذكرى السنوية الرابعة للدفعة 44 كلية الطب</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+    :root{
+      --blue:#243D9B;
+      --blue-dark:#14255f;
+      --gold:#D4A53A;
+      --white:#FFFFFF;
+      --soft:#F7F8FC;
+      --text:#111827;
+      --muted:#5B6475;
+      --card:#ffffffcc;
+      --shadow:0 18px 50px rgba(36,61,155,.14);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Cairo',system-ui,sans-serif;
+      background:var(--soft);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px,92%);margin:auto}
+
+    .bg-shapes{
+      position:fixed;inset:0;z-index:-1;overflow:hidden;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(36,61,155,.18), transparent 32%),
+        radial-gradient(circle at 88% 10%, rgba(212,165,58,.16), transparent 30%),
+        linear-gradient(180deg,#fff 0%,#F7F8FC 55%,#EEF2FF 100%);
+    }
+    .bg-shapes::before{
+      content:"";position:absolute;inset:0;
+      background-image:linear-gradient(rgba(36,61,155,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(36,61,155,.06) 1px,transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(to bottom,black,transparent 75%);
+    }
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(255,255,255,.78);
+      border-bottom:1px solid rgba(36,61,155,.1);
+    }
+    .nav-inner{
+      height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--blue)}
+    .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(36,61,155,.22)}
+    .links{display:flex;align-items:center;gap:22px;color:var(--muted);font-weight:700;font-size:14px}
+    .links a:hover{color:var(--blue)}
+    .nav-cta{background:var(--blue);color:white;padding:11px 18px;border-radius:999px;font-weight:800;box-shadow:0 10px 25px rgba(36,61,155,.22)}
+
+    .hero{padding:82px 0 54px}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(36,61,155,.08);color:var(--blue);
+      border:1px solid rgba(36,61,155,.14);
+      padding:10px 16px;border-radius:999px;font-weight:900;margin-bottom:22px;
+    }
+    .badge span{width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(212,165,58,.13)}
+    h1{font-size:clamp(38px,6vw,72px);line-height:1.13;font-weight:900;color:var(--blue-dark);letter-spacing:-1.8px;margin-bottom:18px}
+    .subtitle{font-size:clamp(20px,3vw,32px);font-weight:900;color:var(--blue);margin-bottom:16px}
+    .desc{font-size:18px;line-height:2;color:var(--muted);max-width:640px;margin-bottom:30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:900;border:1px solid transparent;transition:.25s ease;cursor:pointer}
+    .btn-primary{background:var(--blue);color:white;box-shadow:0 18px 34px rgba(36,61,155,.25)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px rgba(36,61,155,.32)}
+    .btn-secondary{background:white;color:var(--blue);border-color:rgba(36,61,155,.16)}
+    .price-pill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#f1d27d);color:#2b2104;padding:15px 22px;border-radius:999px;font-weight:900;box-shadow:0 16px 30px rgba(212,165,58,.25)}
+
+    .hero-card{
+      position:relative;background:rgba(255,255,255,.75);border:1px solid rgba(36,61,155,.12);
+      border-radius:40px;padding:30px;box-shadow:var(--shadow);overflow:hidden;
+    }
+    .hero-card::before{content:"";position:absolute;inset:-35%;background:conic-gradient(from 180deg,transparent,var(--blue),transparent,var(--gold),transparent);animation:spin 10s linear infinite;opacity:.16}
+    .logo-wrap{position:relative;background:white;border-radius:34px;padding:26px;box-shadow:inset 0 0 0 1px rgba(36,61,155,.08)}
+    .logo-wrap img{width:100%;border-radius:24px;animation:float 4s ease-in-out infinite}
+    .mini-card{
+      position:absolute;bottom:28px;right:28px;left:28px;background:rgba(20,37,95,.92);color:white;border-radius:24px;padding:18px 20px;backdrop-filter:blur(12px);display:flex;justify-content:space-between;gap:14px;align-items:center
+    }
+    .mini-card strong{font-size:20px;color:var(--gold)}
+    .mini-card small{color:#d8def9;font-weight:700}
+
+    section{padding:72px 0}
+    .section-head{text-align:center;margin-bottom:34px}
+    .section-head .kicker{color:var(--gold);font-weight:900;margin-bottom:8px}
+    .section-head h2{font-size:clamp(28px,4vw,44px);color:var(--blue-dark);font-weight:900}
+    .section-head p{color:var(--muted);line-height:2;max-width:720px;margin:12px auto 0;font-size:17px}
+
+    .about-card{
+      background:var(--card);border:1px solid rgba(36,61,155,.1);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);text-align:center;
+    }
+    .about-card p{font-size:20px;line-height:2.1;color:var(--muted);font-weight:700}
+
+    .details-grid,.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .detail,.benefit{
+      background:white;border:1px solid rgba(36,61,155,.1);border-radius:24px;padding:24px;box-shadow:0 14px 32px rgba(17,24,39,.06);transition:.25s ease
+    }
+    .detail:hover,.benefit:hover,.gallery-card:hover{transform:translateY(-6px)}
+    .icon{width:48px;height:48px;border-radius:16px;background:rgba(36,61,155,.09);color:var(--blue);display:grid;place-items:center;font-size:23px;margin-bottom:16px}
+    .detail h3,.benefit h3{color:var(--blue-dark);font-weight:900;margin-bottom:8px;font-size:18px}
+    .detail p,.benefit p{color:var(--muted);font-weight:700;line-height:1.8}
+
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+    .timebox{background:var(--blue);color:white;border-radius:22px;padding:18px;text-align:center;box-shadow:0 14px 30px rgba(36,61,155,.2)}
+    .timebox strong{display:block;font-size:30px;color:var(--gold);line-height:1}
+    .timebox span{font-size:13px;font-weight:800;color:#eaf0ff}
+
+    .gallery-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .gallery-card{position:relative;overflow:hidden;border-radius:30px;box-shadow:var(--shadow);min-height:260px;transition:.25s ease;background:#ddd}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+    .gallery-card.large{min-height:470px}
+    .gallery-stack{display:grid;gap:20px}
+    .gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,37,95,.44),transparent 60%)}
+
+    .register{background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:42px;padding:44px;color:white;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;box-shadow:0 24px 60px rgba(36,61,155,.28);position:relative;overflow:hidden}
+    .register::before{content:"";position:absolute;inset:auto -10% -60% auto;width:360px;height:360px;background:rgba(212,165,58,.25);border-radius:50%;filter:blur(10px)}
+    .register h2{font-size:clamp(30px,4vw,48px);font-weight:900;margin-bottom:10px;position:relative}
+    .register p{color:#dbe4ff;line-height:2;font-size:18px;position:relative}
+    .price-big{background:white;color:var(--blue-dark);border-radius:28px;padding:26px 34px;text-align:center;min-width:240px;position:relative}
+    .price-big span{display:block;color:var(--muted);font-weight:800;font-size:14px}
+    .price-big strong{font-size:34px;color:var(--gold);font-weight:900}
+
+    .contact-card{text-align:center;background:white;border:1px solid rgba(36,61,155,.1);border-radius:34px;padding:38px;box-shadow:var(--shadow)}
+    .whatsapp{margin-top:20px;background:#20b15a;color:white;box-shadow:0 18px 34px rgba(32,177,90,.22)}
+
+    footer{padding:34px 0;background:var(--blue-dark);color:white;text-align:center}
+    footer p{color:#dbe4ff;font-weight:700;line-height:1.9}
+
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){
+      .links{display:none}
+      .hero-grid,.gallery-grid,.register{grid-template-columns:1fr}
+      .hero{padding-top:50px}
+      .details-grid,.benefits-grid{grid-template-columns:repeat(2,1fr)}
+      .register{text-align:center}
+      .price-big{margin:auto}
+    }
+    @media(max-width:560px){
+      .nav-inner{height:68px}
+      .brand span{font-size:14px}
+      .nav-cta{padding:9px 13px;font-size:13px}
+      .hero-actions{align-items:stretch;flex-direction:column}
+      .btn,.price-pill{width:100%}
+      .details-grid,.benefits-grid,.countdown{grid-template-columns:1fr}
+      .hero-card{padding:18px;border-radius:30px}
+      .mini-card{position:relative;right:auto;left:auto;bottom:auto;margin-top:18px}
+      section{padding:52px 0}
+      .gallery-card.large,.gallery-card{min-height:230px}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shapes"></div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <img src="assets/logo.png" alt="شعار الذكرى الرابعة" />
+        <span>الدفعة 44 | كلية الطب</span>
+      </a>
+      <div class="links">
+        <a href="#about">المناسبة</a>
+        <a href="#details">التفاصيل</a>
+        <a href="#gallery">الصور</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <div class="badge"><span></span> برعاية الأمانة الثقافية</div>
+        <h1>الذكرى السنوية الرابعة للدفعة 44 كلية الطب</h1>
+        <div class="subtitle">أربعة أعوام ولسه الحكاية مستمرة</div>
+        <p class="desc"> الدفعة 44، دفعة الذكريات، التعب، الضحك، والمواقف البتتحكى سنين. يوم لينا كلنا، مليان فرحة، حنين، وفخر بالمشوار.</p>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="logo-wrap">
+          <img src="assets/logo.png" alt="شعار الذكرى السنوية الرابعة" />
+          <div class="mini-card">
+            <small>كلية الطب - جامعة الجزيرة</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">شنو المناسبة؟</div>
+        <h2>لمة دفعة… وذكرى بتستاهل الاحتفال</h2>
+      </div>
+      <div class="about-card reveal">
+        <p> بنرجع فيها الذكريات الجميلة، الضحكات، الأيام الصعبة، واللحظات العشناها سوا طوال المشوار.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">تفاصيل الفعالية</div>
+        <h2>كل التفاصيل البتهم الدفعة</h2>
+      </div>
+      <div class="details-grid">
+        <div class="detail reveal"><div class="icon">📍</div><h3>المكان</h3><p>كلية الطب - جامعة الجزيرة</p></div>
+        <div class="detail reveal"><div class="icon">📅</div><h3>التاريخ</h3><p>21 مايو 2026</p></div>
+        <div class="detail reveal"><div class="icon">⭐</div><h3>الرعاية</h3><p>الأمانة الثقافية</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">الحضور شامل شنو؟</div>
+        <h2>ليلة ما بتتنسى</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit reveal"><div class="icon">🎟️</div><h3>حضور الفعالية</h3><p>الجائزة في أجواء الذكرى.</p></div>
+        <div class="benefit reveal"><div class="icon">🎭</div><h3>فقرات ثقافية</h3><p>برامج خفيفة وشبابية ومرتبة.</p></div>
+        <div class="benefit reveal"><div class="icon">📸</div><h3>توثيق وتصوير</h3><p>لحظات محفوظة وصور جميلة.</p></div>
+        <div class="benefit reveal"><div class="icon">💙</div><h3>ذكريات</h3><p>لمة وناس وأجواء الدفعة 44.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">من قلب كلية الطب</div>
+        <h2>صور بتحكي حكاية الدفعة</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-card large reveal"><img src="assets/44.png"  align="center" alt="كلية الطب - جامعة الجزيرة" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <div class="container">
+      <div class="register reveal">
+        <div>
+          <h2> BIG price </h2>
+        </div>
+        <div class="price-big">
+          <strong>50,000 SDG</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <p>كلية الطب - جامعة الجزيرة © الذكرى السنوية الرابعة</p>
+      <p>برعاية الأمانة الثقافية</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    },{threshold:.14});
+    revealEls.forEach(el=>observer.observe(el));
+
+    // عدّل تاريخ الفعالية هنا عند تحديده
+    const eventDate = new Date();
+    eventDate.setDate(eventDate.getDate() + 30);
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const distance = eventDate.getTime() - now;
+      const d = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+      const h = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24))/(1000 * 60 * 60)));
+      const m = Math.max(0, Math.floor((distance % (1000 * 60 * 60))/(1000 * 60)));
+      const s = Math.max(0, Math.floor((distance % (1000 * 60))/1000));
+      document.getElementById('days').textContent = String(d).padStart(2,'0');
+      document.getElementById('hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+      document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown,1000);
+  </script>
+</body>
+</html>
